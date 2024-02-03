@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="w-full max-w-[700px] mx-auto">
+        <div className="w-full max-w-[700px] px-4 md:px-0 mx-auto">
           <nav>
             <h1 className="text-4xl mb-2">DEWA ONGKIR</h1>
             <ul className="bg-[#eaeaea] p-2 mb-2">

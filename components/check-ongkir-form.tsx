@@ -80,12 +80,16 @@ function CheckOngkirForm({ cities }: Props) {
     // await axios.post("http://localhost:3000/api/cost", data);
   }
   return (
-    <form onSubmit={onSubmit} className="flex flex-row justify-between">
-      <div className="flex flex-col">
+    <form
+      onSubmit={onSubmit}
+      className="flex flex-col md:flex-row justify-between"
+    >
+      <div className="flex flex-col my-2">
         <input
-          className="outline-none border-[#cccccc80] w-[200px] border-solid border-[1px] p-2"
+          className="outline-none border-[#cccccc80] w-full md:w-[200px]  border-solid border-[1px] p-2"
           placeholder="Kota asal pengiriman"
           name="asal"
+          autoComplete="off"
           value={inputKotaAsal}
           onChange={(e) => onInputKotaChange(e, "kotaAsal")}
           onFocus={() => onListVibleChange("asal")}
@@ -111,11 +115,12 @@ function CheckOngkirForm({ cities }: Props) {
             </div>
           )}
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col my-2">
         <input
-          className="outline-none border-[#cccccc80] w-[200px] border-solid border-[1px] p-2"
+          className="outline-none border-[#cccccc80] w-full md:w-[200px] border-solid border-[1px] p-2"
           placeholder="Kota tujuan pengiriman"
           name="tujuan"
+          autoComplete="off"
           value={inputKotaTujuan}
           onChange={(e) => onInputKotaChange(e, "kotaTujuan")}
           onFocus={() => onListVibleChange("tujuan")}
@@ -141,18 +146,18 @@ function CheckOngkirForm({ cities }: Props) {
             </div>
           )}
       </div>
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row my-2">
         <input
-          className="outline-none border-[#cccccc80] w-[120px] border-solid border-[1px] p-2"
+          className="outline-none border-[#cccccc80] w-full md:w-[120px] border-solid border-[1px] p-2"
           placeholder="Berat Kiriman"
           name="berat"
           onChange={(e) => (berat.current = +e.target.value)}
         />
-        <div className="flex flex-row items-center bg-gray-100 border-gray-100 border-solid border-[1px] px-2 h-full">
+        <div className="flex justify-center items-center bg-gray-100 border-gray-100 border-solid border-[1px] px-2 ">
           <p className="text-[#898989]">gram</p>
         </div>
       </div>
-      <button className="bg-violet-300 p-2">Priksa Ongkir</button>
+      <button className="bg-violet-300 px-2 my-2">Priksa Ongkir</button>
     </form>
   );
 }

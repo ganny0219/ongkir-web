@@ -16,32 +16,37 @@ async function HasilCostPage({ params, searchParams }: PageProps) {
     .catch(() => {
       redirect(process.env.NEXT_PUBLIC_BASE_URL + "not-found");
     });
+  const origin =
+    result.rajaongkir.origin_details.type +
+    " " +
+    result.rajaongkir.origin_details.city_name;
+  const destination =
+    result.rajaongkir.destination_details.type +
+    " " +
+    result.rajaongkir.destination_details.city_name;
 
   return (
     <>
-      <h1>Hasil Cost</h1>
+      <div className="flex flex-col md:flex-row justify-between">
+        <h1>Hasil Pengecekan</h1>
+        <div className="flex flex-row">
+          <b>{origin}</b> <p>&nbsp;ke&nbsp;</p> <b>{destination}</b>{" "}
+          <p>&nbsp;@</p> <b>{dataRequest.weight}</b> <p>gram</p>
+        </div>
+      </div>
       <ul>
         {result.rajaongkir.results[0].costs.map((cost, index) => {
           return (
             <li
               key={index}
-              className="flex flex-col w-[80%] my-4 bg-slate-300 p-4 rounded-sm"
+              className="flex flex-col w-full md:w-[80%] my-4 bg-slate-300 p-4 rounded-sm"
             >
               <div className="flex flex-row w-full justify-between">
-                <p className="w-[50%]">
-                  {result.rajaongkir.results[0].code.toUpperCase()}
-                </p>
-                <p className="w-[30%]">{cost.service}</p>
-                <p className="flex flex-1">
-                  Rp.{cost.cost[0].value.toLocaleString()}
-                </p>
+                <p>{cost.service}</p>
+                <p>Rp.{cost.cost[0].value.toLocaleString()}</p>
               </div>
               <div className="flex flex-row w-full justify-between">
-                <p className="w-[50%] text-sm">
-                  {result.rajaongkir.results[0].name}
-                </p>
-                <p className="w-[30%] text-sm">{cost.description}</p>
-                <p className="flex flex-1" />
+                <p className="text-sm">{cost.description}</p>
               </div>
             </li>
           );
