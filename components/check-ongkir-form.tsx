@@ -98,8 +98,8 @@ function CheckOngkirForm({ cities }: Props) {
         {citiesKotaAsal.length > 0 &&
           listKotaAsalVisible &&
           inputKotaAsal != "" && (
-            <div className="relative ">
-              <ul className="h-[100px] w-full px-2 overflow-y-scroll absolute">
+            <div className="relative">
+              <ul className="h-[100px] bg-white shadow-md w-full px-2 overflow-y-scroll absolute">
                 {citiesKotaAsal.map((city, index) => {
                   return (
                     <li
@@ -130,7 +130,7 @@ function CheckOngkirForm({ cities }: Props) {
           listKotaTujuanVisible &&
           inputKotaTujuan != "" && (
             <div className="relative">
-              <ul className="h-[100px] w-full px-2 overflow-y-scroll absolute">
+              <ul className="h-[100px] bg-white shadow-md w-full px-2 overflow-y-scroll absolute">
                 {citiesKotatujuan.map((city, index) => {
                   return (
                     <li

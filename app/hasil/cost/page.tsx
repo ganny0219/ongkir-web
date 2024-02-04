@@ -29,24 +29,35 @@ async function HasilCostPage({ params, searchParams }: PageProps) {
     <>
       <div className="flex flex-col md:flex-row justify-between">
         <h1>Hasil Pengecekan</h1>
-        <div className="flex flex-row">
+        <div className="flex flex-row justify-center items-center">
           <b>{origin}</b> <p>&nbsp;ke&nbsp;</p> <b>{destination}</b>{" "}
           <p>&nbsp;@</p> <b>{dataRequest.weight}</b> <p>gram</p>
         </div>
       </div>
       <ul>
         {result.rajaongkir.results[0].costs.map((cost, index) => {
+          let service;
+          if (cost.service === "OKE") {
+            service = "Ekonomis";
+          } else if (cost.service === "REG") {
+            service = "Reguler";
+          } else {
+            service = "Express";
+          }
           return (
             <li
               key={index}
               className="flex flex-col w-full md:w-[80%] my-4 bg-slate-300 p-4 rounded-sm"
             >
               <div className="flex flex-row w-full justify-between">
-                <p>{cost.service}</p>
+                <p>{service}</p>
                 <p>Rp.{cost.cost[0].value.toLocaleString()}</p>
               </div>
               <div className="flex flex-row w-full justify-between">
-                <p className="text-sm">{cost.description}</p>
+                {/* <p className="text-sm">{cost.description}</p> */}
+                <p className="text-sm">
+                  Pengiriman {` ${service} ${cost.cost[0].etd} Hari`}
+                </p>
               </div>
             </li>
           );
