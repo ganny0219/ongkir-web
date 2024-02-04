@@ -157,7 +157,7 @@ function CheckOngkirForm({ cities }: Props) {
           <p className="text-[#898989]">gram</p>
         </div>
       </div>
-      <button className="bg-violet-300 px-2 my-2">Priksa Ongkir</button>
+      <button className="bg-violet-300 px-2 my-2">Periksa Ongkir</button>
     </form>
   );
 }
